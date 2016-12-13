@@ -36,6 +36,15 @@ $(document).ready(function() {
 
     }
 
+    resizeSite();
+    $('.projthumb').each(function() {
+        $(this).find('img').fadeIn(200);
+        if($('body').hasClass('mobile')) {
+            $(this).find('.projtext').fadeIn(200);
+        }
+    });
+    //$(window).resize(resizeSite);
+
     /* ------ On resizing, check the screen size again ------- */
     $(window).resize(function() {
 
@@ -152,9 +161,6 @@ $(document).ready(function() {
 
     //$('.below-footer__container').top
   });
-
-  resizeSite();
-  //$(window).resize(resizeSite);
 
   // Hide Images and Fade in the first one
   if(!$.browser.msie && $(window).width() > 769) {
@@ -514,6 +520,7 @@ function resizeSite() {
               thisText
                 .css('top', height + imgtop + 5 + 'px');
           }
+          thisText.show();
       }
       // DESKTOP Size
       else {
